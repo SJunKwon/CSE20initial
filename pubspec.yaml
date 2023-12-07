@@ -1,0 +1,48 @@
+name: marcgoz_s_application5
+description: A new Flutter project.
+version: 1.0.0+1
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image: ^3.2.1
+  flutter_svg: ^1.1.6
+  flutter_svg_provider: ^1.0.3
+  intl: ^0.18.0
+  permission_handler: ^11.0.1  # Add the permission_handler package here
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/MontserratRomanBlack.ttf
+          weight: 900
+        - asset: assets/fonts/MontserratRomanSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/MontserratRomanBold.ttf
+          weight: 700
+        - asset: assets/fonts/MontserratRomanRegular.ttf
+          weight: 400
+        - asset: assets/fonts/MontserratRomanMedium.ttf
+          weight: 500
+        - asset: assets/fonts/MontserratRomanLight.ttf
+          weight: 300
+        - asset: assets/fonts/MontserratItalicThin.ttf
+          weight: 100
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/RobotoBold.ttf
+          weight: 700
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/RubikRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RubikBold.ttf
+          weight: 700
