@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
-import 'package:marcgoz_s_application5/core/app_export.dart';
+import 'package:facetap/core/app_export.dart';
 
 // ignore: must_be_immutable
 class Twentyfive1ItemWidget extends StatelessWidget {

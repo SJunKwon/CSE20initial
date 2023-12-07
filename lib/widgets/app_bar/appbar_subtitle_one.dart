@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
+import 'package:facetap/core/app_export.dart';
 
 // ignore: must_be_immutable
 class AppbarSubtitleOne extends StatelessWidget {

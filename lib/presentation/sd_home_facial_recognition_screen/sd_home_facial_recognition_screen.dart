@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
-import 'package:marcgoz_s_application5/widgets/custom_elevated_button.dart';
+import 'package:facetap/core/app_export.dart';
+import 'package:facetap/widgets/custom_elevated_button.dart';
 
 class SdHomeFacialRecognitionScreen extends StatelessWidget {
   const SdHomeFacialRecognitionScreen({Key? key}) : super(key: key);

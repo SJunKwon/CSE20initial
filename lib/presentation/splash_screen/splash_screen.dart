@@ -1,6 +1,8 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
-import 'package:marcgoz_s_application5/widgets/custom_elevated_button.dart';
+import 'package:facetap/core/app_export.dart';
+import 'package:facetap/widgets/custom_elevated_button.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -44,7 +46,7 @@ class SplashScreen extends StatelessWidget {
                 width: 210.h,
                 margin: EdgeInsets.only(left: 38.h, right: 20.h),
                 child: Text(
-                  "FACETAP is a facial recognition app designed to simplify and streamline attendance management for educational institutions, corporate organizations, and events using facial recognition technology.",
+                  "facetap is a facial recognition app designed to simplify and streamline attendance management for educational institutions, corporate organizations, and events using facial recognition technology.",
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,

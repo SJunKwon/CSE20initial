@@ -1,5 +1,7 @@
+// ignore_for_file: unnecessary_import
+
 import 'dart:ui';
-import 'package:marcgoz_s_application5/core/app_export.dart';
+import 'package:facetap/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 /// A class that offers pre-defined button styles for customizing button appearance.

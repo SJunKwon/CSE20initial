@@ -1,10 +1,12 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/appbar_trailing_circleimage.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/custom_app_bar.dart';
-import 'package:marcgoz_s_application5/widgets/custom_bottom_bar.dart';
-import 'package:marcgoz_s_application5/widgets/custom_elevated_button.dart';
-import 'package:marcgoz_s_application5/widgets/custom_text_form_field.dart';
+import 'package:facetap/core/app_export.dart';
+import 'package:facetap/widgets/app_bar/appbar_trailing_circleimage.dart';
+import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
+import 'package:facetap/widgets/custom_bottom_bar.dart';
+import 'package:facetap/widgets/custom_elevated_button.dart';
+import 'package:facetap/widgets/custom_text_form_field.dart';
 
 class EdAddDeleteScreen extends StatelessWidget {
   EdAddDeleteScreen({Key? key})

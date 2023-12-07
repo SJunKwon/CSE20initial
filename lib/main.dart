@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:marcgoz_s_application5/theme/theme_helper.dart';
-import 'package:marcgoz_s_application5/routes/app_routes.dart';
+import 'package:facetap/theme/theme_helper.dart';
+import 'package:facetap/routes/app_routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      title: 'marcgoz_s_application5',
+      title: 'FaceTap',
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splashScreen,
       routes: AppRoutes.routes,

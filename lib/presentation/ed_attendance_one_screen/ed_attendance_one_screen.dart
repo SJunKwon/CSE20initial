@@ -1,10 +1,10 @@
 import '../ed_attendance_one_screen/widgets/edattendanceone_item_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/appbar_trailing_circleimage.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/custom_app_bar.dart';
-import 'package:marcgoz_s_application5/widgets/custom_bottom_bar.dart';
-import 'package:marcgoz_s_application5/widgets/custom_elevated_button.dart';
+import 'package:facetap/core/app_export.dart';
+import 'package:facetap/widgets/app_bar/appbar_trailing_circleimage.dart';
+import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
+import 'package:facetap/widgets/custom_bottom_bar.dart';
+import 'package:facetap/widgets/custom_elevated_button.dart';
 
 // ignore_for_file: must_be_immutable
 class EdAttendanceOneScreen extends StatelessWidget {

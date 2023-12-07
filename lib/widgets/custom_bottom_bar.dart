@@ -1,5 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
+import 'package:facetap/core/app_export.dart';
 
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});

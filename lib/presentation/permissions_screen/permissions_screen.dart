@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 import '../permissions_screen/widgets/permissions_item_widget.dart';
-import 'package:marcgoz_s_application5/core/app_export.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/appbar_leading_image.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/appbar_subtitle_one.dart';
-import 'package:marcgoz_s_application5/widgets/app_bar/custom_app_bar.dart';
-import 'package:marcgoz_s_application5/widgets/custom_checkbox_button.dart';
-import 'package:marcgoz_s_application5/widgets/custom_elevated_button.dart';
+import 'package:facetap/core/app_export.dart';
+import 'package:facetap/widgets/app_bar/appbar_leading_image.dart';
+import 'package:facetap/widgets/app_bar/appbar_subtitle_one.dart';
+import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
+import 'package:facetap/widgets/custom_checkbox_button.dart';
+import 'package:facetap/widgets/custom_elevated_button.dart';
 
 class PermissionsScreen extends StatefulWidget {
   PermissionsScreen({Key? key}) : super(key: key);
