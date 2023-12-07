@@ -1,4 +1,4 @@
-
+I apologize for the formatting issue. It seems the indentation got removed. Here's the corrected version with proper formatting:
 
 ```markdown
 # CSEinitial
@@ -19,15 +19,15 @@ Check the UI of all the app screens from a single place by setting up the 'initi
 ├── assets                  - Contains all images and fonts of your application.
 ├── ios                     - Contains files required to run the application on an iOS platform.
 ├── lib                     - Most important folder in the application, used to write most of the Dart code.
-    ├── main.dart           - Starting point of the application
-    ├── core
-    │   ├── app_export.dart - Contains commonly used file imports
-    │   ├── constants       - Contains static constant class file
-    │   └── utils           - Contains common files and utilities of the application
-    ├── presentation        - Contains widgets of the screens
-    ├── routes              - Contains all the routes of the application
-    └── theme               - Contains app theme and decoration classes
-    └── widgets             - Contains all custom widget classes
+│   ├── main.dart           - Starting point of the application
+│   ├── core
+│   │   ├── app_export.dart - Contains commonly used file imports
+│   │   ├── constants       - Contains static constant class file
+│   │   └── utils           - Contains common files and utilities of the application
+│   ├── presentation        - Contains widgets of the screens
+│   ├── routes              - Contains all the routes of the application
+│   └── theme               - Contains app theme and decoration classes
+└── widgets                 - Contains all custom widget classes
 ```
 
-Feel free to adjust it further based on your preferences!
+Now it should be correctly formatted.
