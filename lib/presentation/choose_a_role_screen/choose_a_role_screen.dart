@@ -9,67 +9,90 @@ class ChooseARoleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
-        child: Scaffold(
-            body: SizedBox(
-                width: double.maxFinite,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Choose Your Role",
-                          style: theme.textTheme.headlineSmall),
-                      SizedBox(height: 52.v),
-                      Container(
-                          margin: EdgeInsets.only(left: 2.h, right: 3.h),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 69.h, vertical: 39.v),
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: fs.Svg(ImageConstant.imgGroup77),
-                                  fit: BoxFit.cover)),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 3.v),
-                                CustomImageView(
-                                    imagePath: ImageConstant.imgVector,
-                                    height: 54.v,
-                                    width: 77.h),
-                                SizedBox(height: 7.v),
-                                Text("Students",
-                                    style: theme.textTheme.titleSmall)
-                              ])),
-                      SizedBox(height: 57.v),
-                      GestureDetector(
-                          onTap: () {
-                            onTapTwelve(context);
-                          },
-                          child: Container(
-                              margin: EdgeInsets.only(left: 2.h, right: 3.h),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 70.h, vertical: 34.v),
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: fs.Svg(ImageConstant.imgGroup77),
-                                      fit: BoxFit.cover)),
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SizedBox(height: 14.v),
-                                    CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgVectorPrimary,
-                                        height: 54.v,
-                                        width: 67.h),
-                                    SizedBox(height: 6.v),
-                                    Text("Educators",
-                                        style: theme.textTheme.titleSmall)
-                                  ]))),
-                      SizedBox(height: 3.v)
-                    ]))));
+      child: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Choose Your Role", style: theme.textTheme.headlineSmall),
+                SizedBox(height: 30),
+                _buildRoleButton(
+                  imagePath: ImageConstant.imgVector,
+                  roleText: "Students",
+                  onTap: () {
+                    onTapStudent(context);
+                  },
+                ),
+                SizedBox(height: 20),
+                _buildRoleButton(
+                  imagePath: ImageConstant.imgVectorPrimary,
+                  roleText: "Educators",
+                  onTap: () {
+                    onTapEducator(context);
+                  },
+                ),
+                SizedBox(height: 30),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
-  /// Navigates to the signInAsStudentScreen when the action is triggered.
-  onTapTwelve(BuildContext context) {
+  Widget _buildRoleButton({
+    required String imagePath,
+    required String roleText,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        padding: EdgeInsets.all(25),
+        width: double.infinity, // Full width
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.9), // Adjust opacity as needed
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomImageView(
+              imagePath: imagePath,
+              height: 80,
+              width: 80,
+            ),
+            SizedBox(height: 15),
+            Text(
+              roleText,
+              style: TextStyle(
+                color: Colors.grey[800], // Adjust color as needed
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void onTapStudent(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.signInAsStudentScreen);
+  }
+
+  void onTapEducator(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.signInAsEducatorScreen);
   }
 }

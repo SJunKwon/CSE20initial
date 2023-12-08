@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../permissions_screen/widgets/permissions_item_widget.dart';
 import 'package:facetap/core/app_export.dart';
-import 'package:facetap/widgets/app_bar/appbar_leading_image.dart';
 import 'package:facetap/widgets/app_bar/appbar_subtitle_one.dart';
 import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
 import 'package:facetap/widgets/custom_checkbox_button.dart';
@@ -49,10 +47,9 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: 60,
-      leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeft,
-        margin: EdgeInsets.only(left: 24, top: 18, bottom: 18),
-        onTap: () {
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
           onTapArrowLeft(context);
         },
       ),
@@ -71,7 +68,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
         "Please allow us permission to access the following for fast and wide facial detection.",
         maxLines: 3,
         overflow: TextOverflow.ellipsis,
-        style: CustomTextStyles.bodyMediumThin.copyWith(height: 1.20),
+        style: TextStyle(fontSize: 16, height: 1.20),
       ),
     );
   }
@@ -81,16 +78,40 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
       alignment: Alignment.center,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 7),
-        child: ListView.separated(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 12);
-          },
-          itemCount: 2,
-          itemBuilder: (context, index) {
-            return PermissionsItemWidget();
-          },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomCheckboxButton(
+              text: "I read the Privacy policy and I accept the terms and conditions.",
+              isExpandedText: false,
+              value: readPolicyChecked,
+              onChange: (value) {
+                setState(() {
+                  readPolicyChecked = value;
+                });
+              },
+            ),
+            SizedBox(height: 10),
+            CustomCheckboxButton(
+              text: "Allow access to Camera",
+              value: cameraPermissionChecked,
+              onChange: (value) {
+                setState(() {
+                  cameraPermissionChecked = value;
+                });
+              },
+            ),
+            SizedBox(height: 10),
+            CustomCheckboxButton(
+              text: "Allow access to Location",
+              value: locationPermissionChecked,
+              onChange: (value) {
+                setState(() {
+                  locationPermissionChecked = value;
+                });
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -100,38 +121,9 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
     return Padding(
       padding: EdgeInsets.only(left: 1, right: 19),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomCheckboxButton(
-            text: "I read the Privacy policy and I accept the terms and conditions.",
-            isExpandedText: true,
-            value: readPolicyChecked,
-            onChange: (value) {
-              setState(() {
-                readPolicyChecked = value;
-              });
-            },
-          ),
-          SizedBox(height: 10),
-          CustomCheckboxButton(
-            text: "Allow access to Camera",
-            value: cameraPermissionChecked,
-            onChange: (value) {
-              setState(() {
-                cameraPermissionChecked = value;
-              });
-            },
-          ),
-          SizedBox(height: 10),
-          CustomCheckboxButton(
-            text: "Allow access to Location",
-            value: locationPermissionChecked,
-            onChange: (value) {
-              setState(() {
-                locationPermissionChecked = value;
-              });
-            },
-          ),
+          // Remove the existing checkboxes
         ],
       ),
     );

@@ -7,10 +7,7 @@ import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
 import 'package:facetap/widgets/custom_bottom_bar.dart';
 
 class StudentDashboardHomeScreen extends StatelessWidget {
-  StudentDashboardHomeScreen({Key? key})
-      : super(
-          key: key,
-        );
+  StudentDashboardHomeScreen({Key? key}) : super(key: key);
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
@@ -105,27 +102,47 @@ class StudentDashboardHomeScreen extends StatelessWidget {
               SizedBox(
                 height: 69.v,
                 width: 284.h,
-                child: Stack(
-                  alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgFrameGreen40002,
-                      height: 15.v,
-                      width: 11.h,
-                      alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.only(left: 46.h),
+                    Column(
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgClock,
+                          height: 33.adaptSize,
+                          width: 33.adaptSize,
+                        ),
+                        SizedBox(height: 2.v),
+                        Text(
+                          "--:--",
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                        Text(
+                          "Time In",
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ],
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(
+                      height: 68.v,
+                      width: 70.h,
+                      child: Stack(
+                        alignment: Alignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 1.v),
+                          CustomImageView(
+                            imagePath: ImageConstant.imgFrameGreen4000215x11,
+                            height: 15.v,
+                            width: 11.h,
+                            alignment: Alignment.topRight,
+                            margin: EdgeInsets.only(right: 7.h),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
                             child: Column(
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgClock,
+                                  imagePath: ImageConstant.imgClockGreen40001,
                                   height: 33.adaptSize,
                                   width: 33.adaptSize,
                                 ),
@@ -135,68 +152,7 @@ class StudentDashboardHomeScreen extends StatelessWidget {
                                   style: theme.textTheme.bodyMedium,
                                 ),
                                 Text(
-                                  "Time In",
-                                  style: theme.textTheme.bodyMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 68.v,
-                            width: 70.h,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                CustomImageView(
-                                  imagePath:
-                                      ImageConstant.imgFrameGreen4000215x11,
-                                  height: 15.v,
-                                  width: 11.h,
-                                  alignment: Alignment.topRight,
-                                  margin: EdgeInsets.only(right: 7.h),
-                                ),
-                                Align(
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgClockGreen40001,
-                                        height: 33.adaptSize,
-                                        width: 33.adaptSize,
-                                      ),
-                                      SizedBox(height: 2.v),
-                                      Text(
-                                        "--:--",
-                                        style: theme.textTheme.bodyMedium,
-                                      ),
-                                      Text(
-                                        "Time Out",
-                                        style: theme.textTheme.bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 1.v),
-                            child: Column(
-                              children: [
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgFrameGreen40001,
-                                  height: 33.adaptSize,
-                                  width: 33.adaptSize,
-                                ),
-                                SizedBox(height: 2.v),
-                                Text(
-                                  "--:--",
-                                  style: theme.textTheme.bodyMedium,
-                                ),
-                                Text(
-                                  "Class Time",
+                                  "Time Out",
                                   style: theme.textTheme.bodyMedium,
                                 ),
                               ],
@@ -204,6 +160,24 @@ class StudentDashboardHomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                    Column(
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgFrameGreen40001,
+                          height: 33.adaptSize,
+                          width: 33.adaptSize,
+                        ),
+                        SizedBox(height: 2.v),
+                        Text(
+                          "--:--",
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                        Text(
+                          "Class Time",
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ],
                     ),
                   ],
                 ),
