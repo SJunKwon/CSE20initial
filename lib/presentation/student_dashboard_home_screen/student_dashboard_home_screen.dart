@@ -226,7 +226,20 @@ class StudentDashboardHomeScreen extends StatelessWidget {
 
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {},
+      onChanged: (BottomBarEnum type) {
+        switch (type) {
+          case BottomBarEnum.Attendance:
+            Navigator.of(context).pushNamed(AppRoutes.sdAttendanceScreen);
+            break;
+          case BottomBarEnum.Notification:
+            Navigator.of(context).pushNamed(AppRoutes.sdNotificationScreen);
+            break;
+          case BottomBarEnum.Settings:
+            Navigator.of(context).pushNamed(AppRoutes.sdSettingsScreen);
+            break;
+
+        }
+      },
     );
   }
 }
