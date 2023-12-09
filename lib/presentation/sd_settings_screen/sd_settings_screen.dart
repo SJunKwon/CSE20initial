@@ -11,8 +11,8 @@ import 'package:facetap/widgets/custom_outlined_button.dart';
 class SdSettingsScreen extends StatelessWidget {
   SdSettingsScreen({Key? key})
       : super(
-          key: key,
-        );
+    key: key,
+  );
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
@@ -49,6 +49,10 @@ class SdSettingsScreen extends StatelessWidget {
                 child: _buildThirty(
                   context,
                   changePassword: "Edit profile",
+                  onTap: () {
+                    // Navigate to sd_notification_screen.dart
+                    Navigator.of(context).pushNamed(AppRoutes.studentDashboardHomeScreen);
+                  },
                 ),
               ),
               SizedBox(height: 19.v),
@@ -60,6 +64,10 @@ class SdSettingsScreen extends StatelessWidget {
                 child: _buildThirty(
                   context,
                   changePassword: "Change password",
+                  onTap: () {
+                    // Navigate to sd_notification_screen.dart
+                    Navigator.of(context).pushNamed(AppRoutes.sdNotificationScreen);
+                  },
                 ),
               ),
               SizedBox(height: 19.v),
@@ -68,6 +76,10 @@ class SdSettingsScreen extends StatelessWidget {
                 child: _buildThirty(
                   context,
                   changePassword: "Delete account?",
+                  onTap: () {
+                    // Navigate to sd_settings_screen.dart
+                    Navigator.of(context).pushNamed(AppRoutes.sdSettingsScreen);
+                  },
                 ),
               ),
               Spacer(),
@@ -105,33 +117,52 @@ class SdSettingsScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {},
+      onChanged: (BottomBarEnum type) {
+        switch (type) {
+          case BottomBarEnum.Attendance:
+            Navigator.of(context).pushNamed(AppRoutes.sdAttendanceScreen);
+            break;
+          case BottomBarEnum.Notification:
+            Navigator.of(context).pushNamed(AppRoutes.sdNotificationScreen);
+            break;
+          case BottomBarEnum.Settings:
+            Navigator.of(context).pushNamed(AppRoutes.sdSettingsScreen);
+            break;
+          case BottomBarEnum.Home:
+            Navigator.of(context).pushNamed(AppRoutes.studentDashboardHomeScreen);
+            break;
+        }
+      },
     );
   }
 
   /// Common widget
   Widget _buildThirty(
-    BuildContext context, {
-    required String changePassword,
-  }) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 1.v),
-          child: Text(
-            changePassword,
-            style: CustomTextStyles.bodyMediumRegular15.copyWith(
-              color: appTheme.black90001,
+      BuildContext context, {
+        required String changePassword,
+        required VoidCallback onTap,
+      }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 1.v),
+            child: Text(
+              changePassword,
+              style: CustomTextStyles.bodyMediumRegular15.copyWith(
+                color: appTheme.black90001,
+              ),
             ),
           ),
-        ),
-        CustomImageView(
-          imagePath: ImageConstant.imgArrowRight,
-          height: 20.adaptSize,
-          width: 20.adaptSize,
-        ),
-      ],
+          CustomImageView(
+            imagePath: ImageConstant.imgArrowRight,
+            height: 20.adaptSize,
+            width: 20.adaptSize,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -237,7 +237,9 @@ class StudentDashboardHomeScreen extends StatelessWidget {
           case BottomBarEnum.Settings:
             Navigator.of(context).pushNamed(AppRoutes.sdSettingsScreen);
             break;
-
+          case BottomBarEnum.Home:
+            Navigator.of(context).pushNamed(AppRoutes.studentDashboardHomeScreen);
+            break;
         }
       },
     );

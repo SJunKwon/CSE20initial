@@ -1,3 +1,4 @@
+
 // ignore_for_file: must_be_immutable
 
 import '../sd_attendance_screen/widgets/month_item_widget.dart';
@@ -11,8 +12,8 @@ import 'package:facetap/widgets/custom_bottom_bar.dart';
 class SdAttendanceScreen extends StatelessWidget {
   SdAttendanceScreen({Key? key})
       : super(
-          key: key,
-        );
+    key: key,
+  );
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
@@ -115,9 +116,9 @@ class SdAttendanceScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 31.h),
         scrollDirection: Axis.horizontal,
         separatorBuilder: (
-          context,
-          index,
-        ) {
+            context,
+            index,
+            ) {
           return SizedBox(
             width: 23.h,
           );
@@ -138,9 +139,9 @@ class SdAttendanceScreen extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         separatorBuilder: (
-          context,
-          index,
-        ) {
+            context,
+            index,
+            ) {
           return SizedBox(
             height: 18.v,
           );
@@ -156,7 +157,22 @@ class SdAttendanceScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {},
+      onChanged: (BottomBarEnum type) {
+        switch (type) {
+          case BottomBarEnum.Attendance:
+            Navigator.of(context).pushNamed(AppRoutes.sdAttendanceScreen);
+            break;
+          case BottomBarEnum.Notification:
+            Navigator.of(context).pushNamed(AppRoutes.sdNotificationScreen);
+            break;
+          case BottomBarEnum.Settings:
+            Navigator.of(context).pushNamed(AppRoutes.sdSettingsScreen);
+            break;
+          case BottomBarEnum.Home:
+            Navigator.of(context).pushNamed(AppRoutes.studentDashboardHomeScreen);
+            break;
+        }
+      },
     );
   }
 }
