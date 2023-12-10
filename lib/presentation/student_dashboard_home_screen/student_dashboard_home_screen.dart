@@ -5,12 +5,8 @@ import 'package:facetap/core/app_export.dart';
 import 'package:facetap/widgets/app_bar/appbar_trailing_circleimage.dart';
 import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
 import 'package:facetap/widgets/custom_bottom_bar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class StudentDashboardHomeScreen extends StatelessWidget {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   StudentDashboardHomeScreen({Key? key}) : super(key: key);
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -18,8 +14,6 @@ class StudentDashboardHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    // Retrieve the current user
-    User? user = _auth.currentUser;
 
     return SafeArea(
       child: Scaffold(

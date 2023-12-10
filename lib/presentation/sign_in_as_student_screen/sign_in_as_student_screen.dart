@@ -4,8 +4,6 @@ import 'package:facetap/widgets/app_bar/appbar_subtitle_one.dart';
 import 'package:facetap/widgets/app_bar/custom_app_bar.dart';
 import 'package:facetap/widgets/custom_checkbox_button.dart';
 import 'package:facetap/widgets/custom_elevated_button.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInAsStudentScreen extends StatefulWidget {
   SignInAsStudentScreen({Key? key}) : super(key: key);
@@ -15,10 +13,6 @@ class SignInAsStudentScreen extends StatefulWidget {
 }
 
 class _SignInAsStudentScreenState extends State<SignInAsStudentScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  // Define a global counter variable
-  int _globalCounter = 0;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool rememberMe = false;
@@ -170,48 +164,10 @@ class _SignInAsStudentScreenState extends State<SignInAsStudentScreen> {
     Navigator.pop(context);
   }
 
-  void onTapSignIn(BuildContext context) async {
+  void onTapSignIn(BuildContext context) {
     if (_formKey.currentState?.validate() ?? false) {
-      try {
-        // Sign up with email and password
-        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
-
-        // Retrieve the signed-in user
-        User? user = userCredential.user;
-
-        if (user != null) {
-          // Fetch the current counter value from Firestore
-          DocumentSnapshot counterSnapshot =
-          await _firestore.collection('stud_counter').doc('studentCounter').get();
-
-          int currentCounter = counterSnapshot.exists ? counterSnapshot['count'] : 0;
-
-          // Generate studId using the current counter
-          String studId = 's${currentCounter + 1}';
-
-          // Update the counter in Firestore
-          await _firestore.collection('stud_counter').doc('studentCounter').update({
-            'count': currentCounter + 1,
-          });
-
-          // Create a document in the "students" collection with the user's UID
-          await _firestore.collection('students').doc(user.uid).set({
-            'studId': studId,
-            'name': 'Johnny Test',
-            'email': emailController.text,
-            // Add other fields as needed
-          });
-
-          // Navigate to the home screen on successful sign-up
-          Navigator.pushNamed(context, AppRoutes.studentDashboardHomeScreen);
-        }
-      } catch (e) {
-        // Handle sign-up errors
-        print('Error: $e');
-      }
+      // Handle sign-in logic and navigation
+      Navigator.pushNamed(context, AppRoutes.studentDashboardHomeScreen);
     }
   }
 }
