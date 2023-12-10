@@ -13,9 +13,10 @@ class PermissionsScreen extends StatefulWidget {
 }
 
 class _PermissionsScreenState extends State<PermissionsScreen> {
-  bool readPolicyChecked = false;
   bool cameraPermissionChecked = false;
   bool locationPermissionChecked = false;
+  bool readPolicyChecked = false;
+  bool termsAndConditionsChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Permissions", style: theme.textTheme.headlineSmall),
+              Text("Face Tap for Students", style: theme.textTheme.headlineSmall),
               SizedBox(height: 14),
               _buildDescription(),
               SizedBox(height: 5),
@@ -65,7 +66,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
       width: double.infinity,
       margin: EdgeInsets.only(right: 8),
       child: Text(
-        "Please allow us permission to access the following for fast and wide facial detection.",
+        "Please give us permission to access the following for fast and wide facial detection.",
         maxLines: 3,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 16, height: 1.20),
@@ -82,17 +83,6 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomCheckboxButton(
-              text: "I read the Privacy policy and I accept the terms and conditions.",
-              isExpandedText: false,
-              value: readPolicyChecked,
-              onChange: (value) {
-                setState(() {
-                  readPolicyChecked = value;
-                });
-              },
-            ),
-            SizedBox(height: 10),
-            CustomCheckboxButton(
               text: "Allow access to Camera",
               value: cameraPermissionChecked,
               onChange: (value) {
@@ -108,6 +98,28 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
               onChange: (value) {
                 setState(() {
                   locationPermissionChecked = value;
+                });
+              },
+            ),
+            SizedBox(height: 10),
+            CustomCheckboxButton(
+              text: "I read the Privacy policy",
+              isExpandedText: false,
+              value: readPolicyChecked,
+              onChange: (value) {
+                setState(() {
+                  readPolicyChecked = value;
+                });
+              },
+            ),
+            SizedBox(height: 10),
+            CustomCheckboxButton(
+              text: "I accept the terms and conditions",
+              isExpandedText: false,
+              value: termsAndConditionsChecked,
+              onChange: (value) {
+                setState(() {
+                  termsAndConditionsChecked = value;
                 });
               },
             ),
@@ -134,7 +146,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
       height: 43,
       text: "Allow".toUpperCase(),
       margin: EdgeInsets.symmetric(horizontal: 8),
-      onPressed: (readPolicyChecked && cameraPermissionChecked && locationPermissionChecked)
+      onPressed: (cameraPermissionChecked && locationPermissionChecked && readPolicyChecked && termsAndConditionsChecked)
           ? () => onTapAllow(context)
           : null,
       alignment: Alignment.center,
