@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "666098263353",
+    "project_id": "facetap-d4d1a",
+    "storage_bucket": "facetap-d4d1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666098263353:android:e5e9ce888480344103b4e8",
+        "android_client_info": {
+          "package_name": "com.marcgozsapplication.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAto_ESe7XvXXvkfU36oCI_OBPfBgAhkrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
